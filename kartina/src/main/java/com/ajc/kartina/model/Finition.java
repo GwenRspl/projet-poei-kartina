@@ -16,8 +16,8 @@ public class Finition {
 	private int id;
 	private String name;
 	
-//	@OneToMany(mappedBy="finition")
-//	private List<LigneCommande> lignecmde;
+	@OneToMany(mappedBy="finition")
+	private List<LigneCommande> lignecmde;
 	
 	@Version
 	private int version;
