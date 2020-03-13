@@ -3,6 +3,7 @@ package com.ajc.kartina.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class EnteteCommande {
@@ -26,13 +29,15 @@ public class EnteteCommande {
 	private double prixTotal;
 	private Date date;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "commande_id")
 	private User user;
 
-	@OneToMany(mappedBy = "enteteCommande")
+	@OneToMany(mappedBy = "enteteCommande", cascade = { CascadeType.ALL })
 	private List<LigneCommande> ligneCommandes;
 
+	@JsonIgnore
 	@Version
 	private int version;
 
