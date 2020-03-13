@@ -24,6 +24,7 @@ public class Address {
 	@OneToOne(mappedBy = "adresse")
 	private User user;
 
+	@JsonIgnore
 	@Version
 	private int version;
 

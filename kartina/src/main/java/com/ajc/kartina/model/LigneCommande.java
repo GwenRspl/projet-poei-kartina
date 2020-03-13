@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class LigneCommande {
 
@@ -22,6 +24,7 @@ public class LigneCommande {
 	private int quantity;
 	private double prixUnitaire;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "commande_id")
 	private EnteteCommande enteteCommande;
@@ -38,6 +41,7 @@ public class LigneCommande {
 	@JoinColumn(name = "cadre_id")
 	private Cadre cadre;
 
+	@JsonIgnore
 	@Version
 	private int version;
 
