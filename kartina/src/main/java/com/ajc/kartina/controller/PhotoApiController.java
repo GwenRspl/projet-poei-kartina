@@ -3,6 +3,8 @@ package com.ajc.kartina.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,7 +41,7 @@ public class PhotoApiController {
 		}
 	}
 
-	@GetMapping("/photo/{id}")
+	@GetMapping("/photos/{id}")
 	public ResponseEntity<Photo> findById(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			return new ResponseEntity<>(this.repository	.findById(id)
@@ -51,7 +53,7 @@ public class PhotoApiController {
 
 	}
 
-	@PutMapping("/photo")
+	@PutMapping("/photos")
 	public ResponseEntity<String> update(@RequestBody Photo photo) {
 		if (this.repository.existsById(photo.getId())) {
 			this.repository.save(photo);
@@ -61,7 +63,7 @@ public class PhotoApiController {
 		}
 	}
 
-	@DeleteMapping("/photo/{id}")
+	@DeleteMapping("/photos/{id}")
 	public ResponseEntity<String> delete(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			Photo p = this.repository	.findById(id)
@@ -72,5 +74,18 @@ public class PhotoApiController {
 			return new ResponseEntity<>("Erreur, la photo n'existe pas", HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	@GetMapping("/photos/best")
+	public ResponseEntity<List<Photo>> listBest() {
+		Pageable firstpage = PageRequest.of(0, 6);
+		return new ResponseEntity<>(this.repository.findBestPhotos(firstpage), HttpStatus.OK);
+	}
+	
+	@GetMapping("/photos/recent")
+	public ResponseEntity<List<Photo>> listRecent() {
+		Pageable firstpage = PageRequest.of(0, 12);
+		return new ResponseEntity<>(this.repository.findRecentPhotos(firstpage), HttpStatus.OK);
+	}
 }
+
+
