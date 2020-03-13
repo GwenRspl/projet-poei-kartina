@@ -18,11 +18,13 @@ public class Finition {
 	private int id;
 	private String name;
 
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "finition")
 	private List<LigneCommande> lignecmde;
 
 	@JsonIgnore
+
 	@Version
 	private int version;
 
