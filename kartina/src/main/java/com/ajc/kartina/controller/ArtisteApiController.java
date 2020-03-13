@@ -39,7 +39,7 @@ public class ArtisteApiController {
 		}
 	}
 
-	@GetMapping("/artiste/{id}")
+	@GetMapping("/artistes/{id}")
 	public ResponseEntity<Artiste> findById(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			return new ResponseEntity<>(this.repository	.findById(id)
@@ -51,7 +51,7 @@ public class ArtisteApiController {
 
 	}
 
-	@PutMapping("/artiste")
+	@PutMapping("/artistes")
 	public ResponseEntity<String> update(@RequestBody Artiste artiste) {
 		if (this.repository.existsById(artiste.getId())) {
 			this.repository.save(artiste);

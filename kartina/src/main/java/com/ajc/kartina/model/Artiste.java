@@ -24,7 +24,8 @@ public class Artiste {
 	private String twitter;
 	private String facebook;
 	private String pinterest;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "artiste")
 	private List<Photo> photo;
 
