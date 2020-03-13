@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Status {
 
@@ -17,9 +19,11 @@ public class Status {
 	private int id;
 	private String nom;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "statut")
 	private List<EnteteCommande> enteteCommandes;
 
+	@JsonIgnore
 	@Version
 	private int version;
 
