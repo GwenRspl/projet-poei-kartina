@@ -22,7 +22,7 @@ import com.ajc.kartina.repository.PhotoRepository;
 @RestController
 @RequestMapping("/api")
 public class PhotoApiController {
-	
+
 	@Autowired
 	private PhotoRepository repository;
 
@@ -67,7 +67,7 @@ public class PhotoApiController {
 	public ResponseEntity<String> delete(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			Photo p = this.repository	.findById(id)
-											.get();
+										.get();
 			this.repository.delete(p);
 			return new ResponseEntity<>("Photo supprimée", HttpStatus.OK);
 		} else {
@@ -86,6 +86,24 @@ public class PhotoApiController {
 		Pageable firstpage = PageRequest.of(0, 12);
 		return new ResponseEntity<>(this.repository.findRecentPhotos(firstpage), HttpStatus.OK);
 	}
+
+
+	@GetMapping("/photos/theme/{id}")
+	public ResponseEntity<List<Photo>> findByThemeId(@PathVariable(name = "id") Integer id) {
+		return new ResponseEntity<>(this.repository.findByThemeId(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/photos/artist/{id}")
+	public ResponseEntity<List<Photo>> findByArtistId(@PathVariable(name = "id") Integer id) {
+		return new ResponseEntity<>(this.repository.findByArtisteId(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/photos/lowstock")
+	public ResponseEntity<List<Photo>> findLowStock() {
+		return new ResponseEntity<>(this.repository.findTop5ByOrderByTirages(), HttpStatus.OK);
+	}
+
+
 }
 
 

@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -40,6 +43,7 @@ public class Photo {
 	private int version;
 
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(name = "photo_theme", joinColumns = @JoinColumn(name = "photo_id"), inverseJoinColumns = @JoinColumn(name = "theme_id"))
 	private List<Theme> theme;
 
@@ -48,6 +52,7 @@ public class Photo {
 	private Orientation orientation;
 
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(name = "photo_format", joinColumns = @JoinColumn(name = "photo_id"), inverseJoinColumns = @JoinColumn(name = "format_id"))
 	private List<Format> format;
 
@@ -56,6 +61,7 @@ public class Photo {
 	private Artiste artiste;
 
 	@ManyToMany(cascade = { CascadeType.ALL })
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(name = "photo_tag", joinColumns = @JoinColumn(name = "photo_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
 	private List<Tag> tag;
 
