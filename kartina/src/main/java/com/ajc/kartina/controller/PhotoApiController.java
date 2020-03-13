@@ -20,7 +20,7 @@ import com.ajc.kartina.repository.PhotoRepository;
 @RestController
 @RequestMapping("/api")
 public class PhotoApiController {
-	
+
 	@Autowired
 	private PhotoRepository repository;
 
@@ -39,7 +39,7 @@ public class PhotoApiController {
 		}
 	}
 
-	@GetMapping("/photo/{id}")
+	@GetMapping("/photos/{id}")
 	public ResponseEntity<Photo> findById(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			return new ResponseEntity<>(this.repository	.findById(id)
@@ -51,7 +51,7 @@ public class PhotoApiController {
 
 	}
 
-	@PutMapping("/photo")
+	@PutMapping("/photos")
 	public ResponseEntity<String> update(@RequestBody Photo photo) {
 		if (this.repository.existsById(photo.getId())) {
 			this.repository.save(photo);
@@ -61,16 +61,31 @@ public class PhotoApiController {
 		}
 	}
 
-	@DeleteMapping("/photo/{id}")
+	@DeleteMapping("/photos/{id}")
 	public ResponseEntity<String> delete(@PathVariable(name = "id") Integer id) {
 		if (this.repository.existsById(id)) {
 			Photo p = this.repository	.findById(id)
-											.get();
+										.get();
 			this.repository.delete(p);
 			return new ResponseEntity<>("Photo supprimée", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Erreur, la photo n'existe pas", HttpStatus.NOT_FOUND);
 		}
+	}
+
+	@GetMapping("/photos/theme/{id}")
+	public ResponseEntity<List<Photo>> findByThemeId(@PathVariable(name = "id") Integer id) {
+		return new ResponseEntity<>(this.repository.findByThemeId(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/photos/artist/{id}")
+	public ResponseEntity<List<Photo>> findByArtistId(@PathVariable(name = "id") Integer id) {
+		return new ResponseEntity<>(this.repository.findByArtisteId(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/photos/lowstock")
+	public ResponseEntity<List<Photo>> findLowStock() {
+		return new ResponseEntity<>(this.repository.findTop5ByOrderByTirages(), HttpStatus.OK);
 	}
 
 }
