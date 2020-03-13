@@ -3,6 +3,8 @@ package com.ajc.kartina.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -72,6 +74,19 @@ public class PhotoApiController {
 			return new ResponseEntity<>("Erreur, la photo n'existe pas", HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@GetMapping("/photos/best")
+	public ResponseEntity<List<Photo>> listBest() {
+		Pageable firstpage = PageRequest.of(0, 6);
+		return new ResponseEntity<>(this.repository.findBestPhotos(firstpage), HttpStatus.OK);
+	}
+	
+	@GetMapping("/photos/recent")
+	public ResponseEntity<List<Photo>> listRecent() {
+		Pageable firstpage = PageRequest.of(0, 12);
+		return new ResponseEntity<>(this.repository.findRecentPhotos(firstpage), HttpStatus.OK);
+	}
+
 
 	@GetMapping("/photos/theme/{id}")
 	public ResponseEntity<List<Photo>> findByThemeId(@PathVariable(name = "id") Integer id) {
@@ -88,4 +103,7 @@ public class PhotoApiController {
 		return new ResponseEntity<>(this.repository.findTop5ByOrderByTirages(), HttpStatus.OK);
 	}
 
+
 }
+
+
