@@ -10,11 +10,15 @@
 
       <form class="mx-2 my-auto d-inline w-100">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Rechercher sur Kartina" aria-label="Username" aria-describedby="basic-addon1">
-          <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon1">@</span>
-          </div>
-        </div>
+          <input type="text" class="form-control border border-right-0" placeholder="Search...">
+          <span class="input-group-append">
+              <button class="btn btn-outline-light border border-left-0" type="button">
+                <fa-icon [icon]="faSearch"></fa-icon>
+              </button>
+          </span>
+
+      </div>
+
       </form>
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -29,7 +33,7 @@
               <a class="nav-link" href="#">Aide</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Panier</a>
+              <a class="nav-link" href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> Panier</a>
           </li>
       </ul>
   </div>
