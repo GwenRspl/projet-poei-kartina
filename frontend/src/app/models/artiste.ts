@@ -1,4 +1,4 @@
-export class Artistes {
+export class Artiste {
 
     id: number;
     prenom: string;
