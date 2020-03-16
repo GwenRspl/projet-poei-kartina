@@ -18,7 +18,7 @@ import com.ajc.kartina.security.model.JwtRequest;
 import com.ajc.kartina.security.model.JwtResponse;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
 	@Autowired
