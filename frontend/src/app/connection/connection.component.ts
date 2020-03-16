@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HeaderService } from './../services/header.service';
 import { TokenStorageService } from './../services/token-storage.service';
 import { LoginInfo } from './../models/login-info';
@@ -13,7 +14,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ConnectionComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private _auth: AuthenticationService, private _token: TokenStorageService, private _header: HeaderService) {
+  constructor(private _formBuilder: FormBuilder,
+    private _auth: AuthenticationService,
+    private _token: TokenStorageService,
+    private _header: HeaderService,
+    private _router: Router) {
   }
 
 
@@ -36,7 +41,7 @@ export class ConnectionComponent implements OnInit {
     this._auth.authenticate(loginInfo).subscribe(data => {
       this._token.saveToken(data);
       this._header.refreshNavBar(true);
-      console.log(data);
+      this._router.navigate(['/home']);
     });
   }
 }
