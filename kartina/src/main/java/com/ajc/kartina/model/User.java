@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -24,6 +26,8 @@ public class User {
 	private String nom;
 	private String email;
 	private String telephone;
+
+	@JsonIgnore
 	private String password;
 
 	@OneToOne(cascade = { CascadeType.ALL })
