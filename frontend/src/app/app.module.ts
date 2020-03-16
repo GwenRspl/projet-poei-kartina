@@ -34,7 +34,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule,
+    AppRoutingModule
 
   ],
   providers: [],

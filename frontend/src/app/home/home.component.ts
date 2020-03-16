@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from '../models/photo';
+import { PhotosService } from '../services/photos.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  photos : Array<Photo> = new Array<Photo>();
 
-  ngOnInit(): void {
+
+  constructor(private _photoService : PhotosService) {
+    this._photoService.GetRecentPhotos().subscribe((data) =>{
+      this.photos = data;
+      console.log(data);
+  });
   }
 
+  ngOnInit(): void {
+
+}
 }

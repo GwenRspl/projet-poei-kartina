@@ -1,2 +1,18 @@
+<div class="container">
+  <img src="..\assets\photos 640x360\forest-1818690_1280.jpg" alt="Nature">
+  <div class="centered">
+  <h1>Nouvelles Oeuvres</h1>
+  <p>Les animaux sauvages</p>
+</div>
+  <button class="btn">Explorez la nouvelle collection ></button>
+  <br><br><br>
+  <div class="card" style="width: 18rem;" *ngFor='let photo of photos'>
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{photo.title}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
 
-<h1>Coucou</h1>
+
