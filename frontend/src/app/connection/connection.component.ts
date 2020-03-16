@@ -25,7 +25,6 @@ export class ConnectionComponent implements OnInit {
   }
 
   login() {
-    // this.submitted = true;
     if (this.loginForm.invalid) {
       console.log('invalid form');
       return;
@@ -38,34 +37,6 @@ export class ConnectionComponent implements OnInit {
       this._token.saveToken(data);
       this._header.refreshNavBar(true);
       console.log(data);
-    })
-    // this.loginInfo = new LoginInfo(this.loginForm.value.email, this.loginForm.value.password);
-    // this.authService.attemptAuthentication(this.loginInfo).subscribe(
-    //   data => {
-    //     this.tokenStorage.saveToken(data.token);
-    //     this.tokenStorage.saveUsername(data.username);
-    //     this.tokenStorage.saveAuthorities(data.authorities);
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.roles = this.tokenStorage.getAuthorities();
-    //     this.isAdmin = this.tokenStorage.isAdmin();
-
-    //     let authority: string = null;
-    //     data.authorities.every(role => {
-    //       if(role === 'ROLE_ADMIN') {
-    //         authority = 'admin';
-    //         return false;
-    //       }
-    //       authority = 'user';
-    //       return true;
-    //     });
-    //     this.headerService.toggleNavBar(authority);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //     this.errorMessage = error.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-    // );
+    });
   }
 }
