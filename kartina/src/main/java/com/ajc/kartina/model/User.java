@@ -24,6 +24,7 @@ public class User {
 	private String nom;
 	private String email;
 	private String telephone;
+
 	private String password;
 
 	@OneToOne(cascade = { CascadeType.ALL })

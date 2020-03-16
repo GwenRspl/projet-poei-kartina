@@ -1,3 +1,8 @@
+import { Address } from './address';
+import { Role } from './role';
+import { EnteteCommande } from './entete-commande';
+import { Artiste } from './artiste';
+
 export class User {
   id: number;
   civilite: string;
@@ -6,7 +11,7 @@ export class User {
   email: string;
   telephone: string;
   password: string;
-  adresse: Adresse;
+  adresse: Address;
   role: Role;
   enteteCommande: EnteteCommande[];
   artiste: Artiste;

@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>Inscription</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 order-md-1">
+      <form class="needs-validation" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="row">
+          <div class="col-md-2 mb-3">
+            <label for="civilite">Civilité</label>
+            <input formControlName="civilite" type="text" class="form-control" id="civilite" placeholder="Mr/Mme"
+              value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <label for="nom">Nom</label>
+            <input formControlName="nom" type="text" class="form-control" id="nom" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <label for="prenom">Prénom</label>
+            <input formControlName="prenom" type="text" class="form-control" id="prenom" placeholder="" value=""
+              required="">
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input formControlName="email" type="email" class="form-control" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Mot de passe</label>
+          <input formControlName="password" type="password" class="form-control" id="password" placeholder="">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="cpassword">Confirmation mot de passe</label>
+          <input formControlName="cpassword" type="password" class="form-control" id="cpassword" placeholder="">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="telephone">Téléphone</label>
+          <input formControlName="telephone" type="text" class="form-control" id="telephone" placeholder="0605124578">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <h4 class="mb-3">Adresse</h4>
+
+        <div class="mb-3">
+          <label for="street">Rue</label>
+          <input formControlName="street" type="text" class="form-control" id="street" placeholder="5 square des nuages"
+            required="">
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-3 mb-3">
+            <label for="zipcode">Code postal</label>
+            <input formControlName="zipcode" type="text" class="form-control" id="zipcode" placeholder="75001">
+          </div>
+
+          <div class="col-md-5 mb-3">
+            <label for="city">Ville</label>
+            <input formControlName="city" type="text" class="form-control" id="city" placeholder="Paris">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="country">Pays</label>
+            <input formControlName="country" type="text" class="form-control" id="country" placeholder="France">
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Créer un compte</button>
+        <br class="mb-4">
+        <br class="mb-4">
+      </form>
+    </div>
+  </div>
+</div>
