@@ -16,6 +16,9 @@ export class CatalogueComponent implements OnInit {
   themes: Theme[] = [];
   formats: Format[] = [];
   orientations: Orientation[] = [];
+  selectedFormats: number[] = [];
+  selectedOrientations: number[] = [];
+  selectedPriceRange: number[] = [1, 2, 3, 4, 5];
 
   constructor(private _photoService: PhotosService, private _filterService: FiltersService) { }
 
@@ -28,10 +31,16 @@ export class CatalogueComponent implements OnInit {
 
     this._filterService.getOrientations().subscribe((data: Orientation[]) => {
       this.orientations = data;
+      this.orientations.forEach(element => {
+        this.selectedOrientations.push(element.id)
+      });
     });
 
     this._filterService.getFormats().subscribe((data: Format[]) => {
       this.formats = data;
+      this.formats.forEach(element => {
+        this.selectedFormats.push(element.id)
+      });
     });
   }
 
@@ -46,7 +55,33 @@ export class CatalogueComponent implements OnInit {
         this.photos = data;
       });
     }
+  }
 
+  onOrientationsChanged(id: number, isChecked: boolean) {
+    if (isChecked) {
+      this.selectedOrientations.push(id);
+    } else {
+      const index = this.selectedOrientations.indexOf(id);
+      this.selectedOrientations.splice(index, 1);
+    }
+  }
+
+  onFormatsChanged(id: number, isChecked: boolean) {
+    if (isChecked) {
+      this.selectedFormats.push(id);
+    } else {
+      const index = this.selectedFormats.indexOf(id);
+      this.selectedFormats.splice(index, 1);
+    }
+  }
+
+  onPriceRangeChanged(id: number, isChecked: boolean) {
+    if (isChecked) {
+      this.selectedPriceRange.push(id);
+    } else {
+      const index = this.selectedPriceRange.indexOf(id);
+      this.selectedPriceRange.splice(index, 1);
+    }
   }
 
   getAllPhotos() {

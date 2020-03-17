@@ -37,7 +37,8 @@
           <ng-template ngbPanelContent>
             <form>
               <div class="form-check" *ngFor="let orientation of orientations">
-                <input class="form-check-input" type="checkbox" value="{{orientation.id}}" id="{{orientation.id}}">
+                <input class="form-check-input" type="checkbox" value="{{orientation.id}}" id="{{orientation.id}}"
+                  (change)="onOrientationsChanged(orientation.id, $event.target.checked)" checked>
                 <label class="form-check-label" for="{{orientation.id}}">
                   {{orientation.name |titlecase}}
                 </label>
@@ -54,7 +55,8 @@
           <ng-template ngbPanelContent>
             <form>
               <div class="form-check" *ngFor="let format of formats">
-                <input class="form-check-input" type="checkbox" value="{{format.id}}" id="{{format.id}}">
+                <input class="form-check-input" type="checkbox" value="{{format.id}}" id="{{format.id}}"
+                  (change)="onFormatsChanged(format.id, $event.target.checked)" checked>
                 <label class="form-check-label" for="{{format.id}}">
                   {{format.name |titlecase}}
                 </label>
@@ -71,31 +73,36 @@
           <ng-template ngbPanelContent>
             <form>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1"
+                  (change)="onPriceRangeChanged(1, $event.target.checked)" checked>
                 <label class="form-check-label" for="defaultCheck1">
                   Moins de 50 €
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                <input class="form-check-input" type="checkbox" value="2" id="defaultCheck2"
+                  (change)="onPriceRangeChanged(2, $event.target.checked)" checked>
                 <label class="form-check-label" for="defaultCheck2">
                   De 50 € à 100 €
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                <input class="form-check-input" type="checkbox" value="3" id="defaultCheck3"
+                  (change)="onPriceRangeChanged(3, $event.target.checked)" checked>
                 <label class="form-check-label" for="defaultCheck3">
                   De 100 € à 200 €
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                <input class="form-check-input" type="checkbox" value="4" id="defaultCheck4"
+                  (change)="onPriceRangeChanged(4, $event.target.checked)" checked>
                 <label class="form-check-label" for="defaultCheck4">
                   De 200 € à 500 €
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                <input class="form-check-input" type="checkbox" value="5" id="defaultCheck5"
+                  (change)="onPriceRangeChanged(5, $event.target.checked)" checked>
                 <label class="form-check-label" for="defaultCheck5">
                   De 500 € à 1000 €
                 </label>
@@ -106,6 +113,7 @@
       </ngb-accordion>
     </aside>
     <aside class="col-sm-10">
-      <app-photo-list [photos]="photos"></app-photo-list>
+      <app-photo-list [photos]="photos | filters:selectedFormats:selectedOrientations:selectedPriceRange">
+      </app-photo-list>
     </aside>
   </div>
