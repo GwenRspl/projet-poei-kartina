@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { ConnectionComponent } from './connection/connection.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { PhotoListComponent } from './photo-list/photo-list.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ConnectionComponent } from './connection/connection.component';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    CatalogueComponent,
+    PhotoListComponent
   ],
   imports: [
     BrowserModule,
