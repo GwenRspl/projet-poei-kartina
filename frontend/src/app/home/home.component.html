@@ -1,2 +1,27 @@
+<div class="container" >
+  <img src="..\assets\photos 640x360\forest-1818690_1280.jpg" alt="Nature">
+  <div class="centered">
+  <h1>Nouvelles Oeuvres</h1>
+  <p>Les animaux sauvages</p>
+</div>
+  <button class="btn" onclick="displayBest()">Explorez la nouvelle collection ></button>
+</div>
 
-<h1>Coucou</h1>
+<div class="containercard">
+  <h1 class="hometitle">Photographies d'Art</h1>
+<p class="homedesc">Oeuvres en édition limitée et numérotée avec certificat d'authenticité</p>
+  <div class="row align-items-center" >
+  <div class="card" style="width: 18rem;" *ngFor='let photo of photos | slice:0:4;let i=index'  >
+    <img class="card-img-top" src="{{photo.imgUrl}}" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{photo.artiste.nom}}</p>
+      <h5 class="card-title">{{photo.title}}</h5>
+      <p class="card-text">à partir de {{photo.prix}}€</p>
+    </div>
+  </div>
+</div>
+<button class="btnexplore" >Explorez la collection ></button>
+</div>
+
+
+

@@ -30,7 +30,9 @@ import { ConnectionComponent } from './connection/connection.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule,
+    AppRoutingModule
 
   ],
   providers: [],
