@@ -20,9 +20,7 @@ export class CatalogueComponent implements OnInit {
   constructor(private _photoService: PhotosService, private _filterService: FiltersService) { }
 
   ngOnInit(): void {
-    this._photoService.getAllPhotos().subscribe((data: Photo[]) => {
-      this.photos = data;
-    });
+    this.getAllPhotos();
 
     this._filterService.getThemes().subscribe((data: Theme[]) => {
       this.themes = data;
@@ -36,5 +34,26 @@ export class CatalogueComponent implements OnInit {
       this.formats = data;
     });
   }
+
+  onThemeChanged(event) {
+    let target = event.target;
+    let value = target.value;
+    if (value === 'all') {
+      this.getAllPhotos();
+    } else {
+      const themeId = +value;
+      this._photoService.getPhotosByTheme(themeId).subscribe((data: Photo[]) => {
+        this.photos = data;
+      });
+    }
+
+  }
+
+  getAllPhotos() {
+    this._photoService.getAllPhotos().subscribe((data: Photo[]) => {
+      this.photos = data;
+    });
+  }
+
 
 }

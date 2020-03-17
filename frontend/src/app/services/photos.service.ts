@@ -12,6 +12,7 @@ export class PhotosService {
   private _bestphotoUrl = 'http://localhost:8080/api/photos/best';
   private _recentphotoUrl = 'http://localhost:8080/api/photos/recent';
   private _allPhotoUrl = 'http://localhost:8080/api/photos';
+  private _photosByTheme = 'http://localhost:8080/api/photos/theme/';
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -24,6 +25,11 @@ export class PhotosService {
 
   getAllPhotos(): Observable<Photo[]> {
     return this._httpClient.get<Photo[]>(this._allPhotoUrl);
+  }
+
+  getPhotosByTheme(themeId: number): Observable<Photo[]> {
+    const path = `${this._photosByTheme}${themeId}`;
+    return this._httpClient.get<Photo[]>(path);
   }
 
 }

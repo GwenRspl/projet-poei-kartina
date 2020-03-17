@@ -16,6 +16,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PhotoListComponent } from './catalogue/photo-list/photo-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.component';
+import { FiltersPipe } from './pipes/filters.pipe';
 
 
 
@@ -31,6 +32,7 @@ import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.c
     PhotoListComponent,
     PageNotFoundComponent,
     PhotoDetailsComponent,
+    FiltersPipe,
   ],
   imports: [
     BrowserModule,

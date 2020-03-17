@@ -11,14 +11,15 @@
           <ng-template ngbPanelContent>
             <form class="radio-input">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="all" value="all" checked>
+                <input class="form-check-input" (change)="onThemeChanged($event)" type="radio" name="exampleRadios"
+                  id="all" value="all" checked>
                 <label class="form-check-label" for="all">
                   All
                 </label>
               </div>
               <div class="form-check" *ngFor="let theme of themes">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="{{theme.name}}"
-                  value="{{theme.id}}">
+                <input class="form-check-input" (change)="onThemeChanged($event)" type="radio" name="exampleRadios"
+                  id="{{theme.name}}" value="{{theme.id}}">
                 <label class="form-check-label" for="{{theme.name}}">
                   {{theme.name | titlecase}}
                 </label>
