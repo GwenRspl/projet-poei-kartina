@@ -1,7 +1,7 @@
-import { Role } from './../models/role';
-import { AuthenticationService } from './../services/authentication.service';
-import { User } from './../models/user';
-import { Address } from './../models/address';
+import { Role } from '../../models/role';
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../models/user';
+import { Address } from '../../models/address';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
