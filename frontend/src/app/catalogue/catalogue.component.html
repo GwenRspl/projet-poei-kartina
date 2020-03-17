@@ -35,16 +35,10 @@
           </ng-template>
           <ng-template ngbPanelContent>
             <form>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                  Default checkbox
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                <label class="form-check-label" for="defaultCheck2">
-                  Disabled checkbox
+              <div class="form-check" *ngFor="let orientation of orientations">
+                <input class="form-check-input" type="checkbox" value="{{orientation.id}}" id="{{orientation.id}}">
+                <label class="form-check-label" for="{{orientation.id}}">
+                  {{orientation.name |titlecase}}
                 </label>
               </div>
             </form>
@@ -58,16 +52,10 @@
           </ng-template>
           <ng-template ngbPanelContent>
             <form>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                  Default checkbox
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                <label class="form-check-label" for="defaultCheck2">
-                  Disabled checkbox
+              <div class="form-check" *ngFor="let format of formats">
+                <input class="form-check-input" type="checkbox" value="{{format.id}}" id="{{format.id}}">
+                <label class="form-check-label" for="{{format.id}}">
+                  {{format.name |titlecase}}
                 </label>
               </div>
             </form>

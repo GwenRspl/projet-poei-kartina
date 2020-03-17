@@ -27,6 +27,14 @@ export class CatalogueComponent implements OnInit {
     this._filterService.getThemes().subscribe((data: Theme[]) => {
       this.themes = data;
     });
+
+    this._filterService.getOrientations().subscribe((data: Orientation[]) => {
+      this.orientations = data;
+    });
+
+    this._filterService.getFormats().subscribe((data: Format[]) => {
+      this.formats = data;
+    });
   }
 
 }
