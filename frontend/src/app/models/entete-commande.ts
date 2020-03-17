@@ -1,3 +1,4 @@
+import { Statut } from './statut';
 import { LigneCommande } from './ligne-commande';
 
 export class EnteteCommande {

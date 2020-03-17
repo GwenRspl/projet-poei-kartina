@@ -2,57 +2,71 @@
   <a class="navbar-brand" href="#">
     <img src="/assets/logo.png" height="30" class="d-inline-block align-top" alt="">
     Photographies d'art en édition limitée</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <form class="mx-2 my-auto d-inline w-100">
-        <div class="input-group">
-          <input type="text" class="form-control border border-right-0" placeholder="Search...">
-          <span class="input-group-append">
-              <button class="btn btn-outline-light border border-left-0" type="button">
-                <fa-icon [icon]="faSearch"></fa-icon>
-              </button>
-          </span>
+    <form class="mx-2 my-auto d-inline w-100">
+      <div class="input-group">
+        <input type="text" class="form-control border border-right-0" placeholder="Search...">
+        <span class="input-group-append">
+          <button class="btn btn-outline-light border border-left-0" type="button">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+        </span>
 
       </div>
 
-      </form>
+    </form>
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Connexion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Inscription</a>
-    </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Aide</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> Panier</a>
-          </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!isLogged">
+          <a class="nav-link" routerLink='connection'>Connexion</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!isLogged">
+          <a class="nav-link" routerLink='register'>Inscription</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="isLogged">
+          <a class="nav-link" routerLink='compte'>
+            <fa-icon [icon]="faUserCircle"></fa-icon>
+            Mon Compte
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">Aide</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a (click)="logout()" style="cursor: pointer;" class="nav-link">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+          </a>
+        </li>
       </ul>
-  </div>
+    </div>
   </div>
 </nav>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#">Photographies</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#">Nouveautés</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#">Artistes</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#">Derniers exemplaires</a>
       </li>
     </ul>

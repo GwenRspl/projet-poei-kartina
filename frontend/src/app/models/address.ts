@@ -3,7 +3,5 @@ export class Address {
   rue: string;
   codePostal: string;
   ville: string;
-  Pays: string;
-  facebook: string;
-  pinterest: string;
+  pays: string;
 }
