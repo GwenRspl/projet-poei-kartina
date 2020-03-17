@@ -32,4 +32,9 @@ export class PhotosService {
     return this._httpClient.get<Photo[]>(path);
   }
 
+  getOnePhoto(photoId: number): Observable<Photo> {
+    const path = `${this._allPhotoUrl}/${photoId}`;
+    return this._httpClient.get<Photo>(path);
+  }
+
 }
