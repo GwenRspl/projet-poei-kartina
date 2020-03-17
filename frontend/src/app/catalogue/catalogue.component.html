@@ -1,0 +1,119 @@
+<div class="container-fluid">
+  <div class="row py-2">
+    <aside class="col-sm-2 py-2">
+      <ngb-accordion>
+        <ngb-panel id="static-1" title="THEME">
+          <ng-template ngbPanelHeader>
+            <div class="d-flex align-items-center justify-content-between">
+              <button ngbPanelToggle class="btn container-fluid text-left pl-0">+ THEME</button>
+            </div>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form class="radio-input">
+              <div class="form-check">
+                <input class="form-check-input" (change)="onThemeChanged($event)" type="radio" name="exampleRadios"
+                  id="all" value="all" checked>
+                <label class="form-check-label" for="all">
+                  All
+                </label>
+              </div>
+              <div class="form-check" *ngFor="let theme of themes">
+                <input class="form-check-input" (change)="onThemeChanged($event)" type="radio" name="exampleRadios"
+                  id="{{theme.name}}" value="{{theme.id}}">
+                <label class="form-check-label" for="{{theme.name}}">
+                  {{theme.name | titlecase}}
+                </label>
+              </div>
+            </form>
+
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-2" title="ORIENTATION">
+          <ng-template ngbPanelHeader>
+            <div class="d-flex align-items-center justify-content-between">
+              <button ngbPanelToggle class="btn container-fluid text-left pl-0">+ ORIENTATION</button>
+            </div>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form>
+              <div class="form-check" *ngFor="let orientation of orientations">
+                <input class="form-check-input" type="checkbox" value="{{orientation.id}}" id="{{orientation.id}}"
+                  (change)="onOrientationsChanged(orientation.id, $event.target.checked)" checked>
+                <label class="form-check-label" for="{{orientation.id}}">
+                  {{orientation.name |titlecase}}
+                </label>
+              </div>
+            </form>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-3" title="FORMAT">
+          <ng-template ngbPanelHeader>
+            <div class="d-flex align-items-center justify-content-between">
+              <button ngbPanelToggle class="btn container-fluid text-left pl-0">+ FORMAT</button>
+            </div>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form>
+              <div class="form-check" *ngFor="let format of formats">
+                <input class="form-check-input" type="checkbox" value="{{format.id}}" id="{{format.id}}"
+                  (change)="onFormatsChanged(format.id, $event.target.checked)" checked>
+                <label class="form-check-label" for="{{format.id}}">
+                  {{format.name |titlecase}}
+                </label>
+              </div>
+            </form>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-4" title="PRIX">
+          <ng-template ngbPanelHeader>
+            <div class="d-flex align-items-center justify-content-between">
+              <button ngbPanelToggle class="btn container-fluid text-left pl-0">+ PRIX</button>
+            </div>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1"
+                  (change)="onPriceRangeChanged(1, $event.target.checked)" checked>
+                <label class="form-check-label" for="defaultCheck1">
+                  Moins de 50 €
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="2" id="defaultCheck2"
+                  (change)="onPriceRangeChanged(2, $event.target.checked)" checked>
+                <label class="form-check-label" for="defaultCheck2">
+                  De 50 € à 100 €
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="3" id="defaultCheck3"
+                  (change)="onPriceRangeChanged(3, $event.target.checked)" checked>
+                <label class="form-check-label" for="defaultCheck3">
+                  De 100 € à 200 €
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="4" id="defaultCheck4"
+                  (change)="onPriceRangeChanged(4, $event.target.checked)" checked>
+                <label class="form-check-label" for="defaultCheck4">
+                  De 200 € à 500 €
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="5" id="defaultCheck5"
+                  (change)="onPriceRangeChanged(5, $event.target.checked)" checked>
+                <label class="form-check-label" for="defaultCheck5">
+                  De 500 € à 1000 €
+                </label>
+              </div>
+            </form>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </aside>
+    <aside class="col-sm-10">
+      <app-photo-list [photos]="photos | filters:selectedFormats:selectedOrientations:selectedPriceRange">
+      </app-photo-list>
+    </aside>
+  </div>
