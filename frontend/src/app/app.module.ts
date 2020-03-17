@@ -16,6 +16,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     RegisterComponent,
     ConnectionComponent,
     CatalogueComponent,
-    PhotoListComponent
+    PhotoListComponent,
   ],
   imports: [
     BrowserModule,
