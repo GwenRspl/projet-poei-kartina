@@ -2,9 +2,16 @@
   width: 100%
   height: 25vw
   object-fit: cover
+  transition: all 0.3s ease-in-out
 
 .card
   border: none
+  cursor: pointer
 
 .text-shadow
   text-shadow: black 2px 0 10px,black 2px 0 10px,black 2px 0 10px
+
+.card:hover .card-img,
+.card:focus .card-img
+  transform: scale(1.02)
+  opacity: 0.5

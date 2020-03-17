@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -27,6 +28,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     ConnectionComponent,
     CatalogueComponent,
     PhotoListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
