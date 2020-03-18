@@ -1,1 +1,42 @@
-<p>photo-details works!</p>
+<section id="product" class="product">
+  <div class="container">
+    <div class="row h-100 flex-container">
+      <div class="col-lg-6 col-md-12 my-auto">
+        <div class="product-image">
+          <img class="photo img-fluid" src="{{photo.imgUrl}}" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 my-auto">
+        <div class="product-description">
+          <h2 class="product-title">{{photo.title}}</h2>
+          <h5 class="product-description"> <a
+              routerLink="/artistes/{{photo.artiste.id}}">{{photo.artiste.prenom | titlecase }}
+              {{photo.artiste.nom |uppercase }}</a>
+          </h5>
+
+          <hr>
+          <br>
+          <h6 class="product-price">Prix: {{photo.prix | currency:'EUR'}}</h6>
+          <h6 class="product-description">Stock: {{photo.tirages}}</h6>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-6 ">
+            <button class="btn btn-dark btn-lg" type="button" (click)="addToCart()">Add To Cart</button>
+          </div>
+          <div class="col-lg-6">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row h-100 flex-container">
+      <div class="col-3"></div>
+      <div class="col-6 my-auto">
+        <ngb-alert *ngIf="successMessage" (close)="successMessage = false" type="success">Article ajouté au panier !
+        </ngb-alert>
+
+      </div>
+    </div>
+  </div>
+</section>
