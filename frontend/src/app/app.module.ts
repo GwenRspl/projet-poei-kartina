@@ -22,6 +22,10 @@ import { LowstockComponent } from './lowstock/lowstock.component';
 import { RecentsComponent } from './recents/recents.component';
 import { ArtistesComponent } from './artistes/artistes.component';
 
+import { PanierComponent } from './panier/panier.component';
+import { CommandeValideeComponent } from './commande-validee/commande-validee.component';
+
+
 
 
 @NgModule({
@@ -41,6 +45,9 @@ import { ArtistesComponent } from './artistes/artistes.component';
     LowstockComponent,
     RecentsComponent,
     ArtistesComponent,
+
+    PanierComponent,
+    CommandeValideeComponent,
   ],
   imports: [
     BrowserModule,

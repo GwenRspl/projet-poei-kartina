@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  registered: boolean = false;
 
   constructor(private _formBuilder: FormBuilder, private _auth: AuthenticationService) { }
 
@@ -60,7 +61,7 @@ export class RegisterComponent implements OnInit {
 
 
     this._auth.register(user).subscribe(data => {
-      console.log(data);
+      this.registered = true;
     });
 
 

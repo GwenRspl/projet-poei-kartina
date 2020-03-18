@@ -9,6 +9,8 @@ import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.c
 import { ThemesComponent } from './themes/themes.component';
 import { LowstockComponent } from './lowstock/lowstock.component';
 import { RecentsComponent } from './recents/recents.component';
+import { PanierComponent } from './panier/panier.component';
+
 
 
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'lastadds', component: RecentsComponent },
   { path: 'artistes', component: RecentsComponent },
   { path: 'photographies/:id', component: PhotoDetailsComponent },
+  { path: 'panier', component: PanierComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];

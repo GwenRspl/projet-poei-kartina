@@ -1,0 +1,78 @@
+<div class="px-4 px-lg-0 py-5">
+
+  <div class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+          <h5 class="text-center" *ngIf="totalPrice===0">Votre panier est vide</h5>
+          <div class="table-responsive" *ngIf="totalPrice!==0">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Oeuvre</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Prix</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantité</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Retirer</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartMap | keyvalue">
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src="{{item.key.imgUrl}}" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">
+                            {{item.key.title}}
+                          </a></h5>
+                        <span class="text-muted font-weight-normal font-italic d-block">{{item.key.artiste.prenom}}
+                          {{item.key.artiste.nom |uppercase}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle text-center"><strong>{{item.key.prix | currency:'EUR'}}</strong></td>
+                  <td class="border-0 align-middle text-center"><strong>{{item.value}}</strong></td>
+                  <td class="border-0 align-middle text-center"><a style="cursor: pointer;"
+                      class="btn btn-dark rounded-pill py-2 btn-block" (click)="removeFromCart(item.key, item.value)"
+                      class="text-dark">
+                      <fa-icon [icon]="faTrash"></fa-icon>
+                    </a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row" *ngIf="totalPrice!==0">
+            <div class="col-lg-6">
+            </div>
+            <div class="col-lg-6">
+              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Résumé de la commande </div>
+              <div class="p-4">
+                <p class="font-italic mb-4">La livraison est offerte pour toutes les commandes.
+                </p>
+                <ul class="list-unstyled mb-4">
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                      class="text-muted">TVA</strong><strong>{{tva | currency:'EUR'}}</strong></li>
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total
+                      TTC</strong>
+                    <h5 class="font-weight-bold">{{totalPrice | currency:'EUR'}}</h5>
+                  </li>
+                </ul>
+                <button class="btn btn-dark rounded-pill py-2 btn-block" (click)="checkout()">Valider</button>
+                <p *ngIf="notLoggedIn">Vous devez vous identifier avant de pouvoir valider la commande.
+                  <a>S'authentifier</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,7 +31,7 @@ export class PhotoDetailsComponent implements OnInit {
   }
 
   addToCart() {
-    this._cartService.addToCart(this.photo.id);
+    this._cartService.addToCart(this.photo);
     this.successMessage = true;
     this._success.next();
   }
