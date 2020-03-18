@@ -21,6 +21,7 @@ import { ThemesComponent } from './themes/themes.component';
 import { LowstockComponent } from './lowstock/lowstock.component';
 import { RecentsComponent } from './recents/recents.component';
 import { ArtistesComponent } from './artistes/artistes.component';
+import { ArtisteComponent } from './artiste/artiste.component';
 
 
 
@@ -41,6 +42,7 @@ import { ArtistesComponent } from './artistes/artistes.component';
     LowstockComponent,
     RecentsComponent,
     ArtistesComponent,
+    ArtisteComponent,
   ],
   imports: [
     BrowserModule,
