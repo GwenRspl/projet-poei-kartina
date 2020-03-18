@@ -4,7 +4,7 @@
   <h1>Nouvelles Oeuvres</h1>
   <p>Les animaux sauvages</p>
 </div>
-  <button class="btn" onclick="displayBest()">Explorez la nouvelle collection ></button>
+  <button class="btn" (click)="goToTheme(3)">Explorez la nouvelle collection </button>
 </div>
 
 <div class="containercard">
@@ -12,7 +12,7 @@
 <p class="homedesc" style="color:white" >Oeuvres en édition limitée et numérotée avec certificat d'authenticité</p>
   <div class="row align-items-center" >
   <div class="card" style="width: 18rem;" *ngFor='let photo of photos | slice:0:4;let i=index'  >
-    <img class="card-img-top" src="{{photo.imgUrl}}" alt="Card image cap">
+    <img class="card-img-top" src="{{photo.imgUrl}}" alt="Card image cap" (click)="goToPage('lastadds')">
     <div class="card-body">
       <p class="card-text">{{photo.artiste.nom}}</p>
       <h5 class="card-title">{{photo.title}}</h5>
@@ -21,7 +21,7 @@
   </div>
   <br><br><br>
 <div class="container">
-  <button class="btnexplore" style="color:black" >Explorez la collection </button>
+  <button class="btnexplore" style="color:black" (click)="goToPage('lastadds')" >Explorez la collection </button>
   </div>
 </div>
 </div>
@@ -30,13 +30,13 @@
   <div class="row">
 
     <div class="col" style="background-color:grey;" ><p class="cat" style="color:white">Voyage Vivez vos Rêves</p><br>
-      <button class="btn1"  >Découvrir la collection </button>
+      <button class="btn1" (click)="goToTheme(1)"  >Découvrir la collection </button>
     </div>
 
 
 
     <div class="col" style="background-color:brown;"><p class="cat" style="color:white">Noir et Blanc Des Oeuvres Intemporelles</p><br>
-      <button class="btn2" >Découvrir la collection </button>
+      <button class="btn2"  (click)="goToTheme(2)" >Découvrir la collection </button>
     </div>
 
     <div class="w-100"></div>
@@ -44,13 +44,13 @@
 
     <div class="col"  style="background-color:darkgreen;"><p class="cat" style="color:white">Aurélien Vilette
       Edifices oubliés</p><br>
-      <button class="btn3" >Découvrir l'artiste</button>
+      <button class="btn3" (click)="goToPage('photographies')" >Découvrir l'artiste</button>
     </div>
 
 
     <div class="col" style="background-color:darkblue;"><p class="cat" style="color:white">Derniers exemplaires
       Ne passer pas à côté de votre oeuvre</p><br>
-      <button class="btn4" >Découvrir les oeuvres</button>
+      <button class="btn4" (click)="goToPage('lowstock')">Découvrir les oeuvres</button>
   </div>
 
 </div>

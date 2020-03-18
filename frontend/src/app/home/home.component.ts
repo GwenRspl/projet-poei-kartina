@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Photo } from '../models/photo';
 import { PhotosService } from '../services/photos.service';
 import { Artiste } from '../models/artiste';
+import { Theme } from '../models/theme';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +13,15 @@ import { Artiste } from '../models/artiste';
 export class HomeComponent implements OnInit {
 
   photos : Array<Photo> = new Array<Photo>();
+
   /* artistes : Array<Artiste> = new Array<Artiste>(); */
 
-  constructor(private _photoService : PhotosService) {
+  constructor(private _photoService : PhotosService, private router: Router) {
     this._photoService.GetRecentPhotos().subscribe((data) =>{
       this.photos = data;
       console.log(data);
   });
+
   }
 
   displayBest(){
@@ -26,7 +30,22 @@ export class HomeComponent implements OnInit {
       console.log(data);
   });}
 
+  goToPage(pageName:string){
+    this.router.navigate([pageName]);
+  }
+
+  goToTheme(id:number){
+    this.router.navigate(['theme',id]);
+  }
+
+ /*  goToLowStock(){
+    this.router.navigate(['lowstock']);
+  } */
+
+
+
   ngOnInit(): void {
+
 
 }
 }
