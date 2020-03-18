@@ -17,6 +17,10 @@ import { PhotoListComponent } from './catalogue/photo-list/photo-list.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.component';
 import { FiltersPipe } from './pipes/filters.pipe';
+import { ThemesComponent } from './themes/themes.component';
+import { LowstockComponent } from './lowstock/lowstock.component';
+import { RecentsComponent } from './recents/recents.component';
+import { ArtistesComponent } from './artistes/artistes.component';
 
 
 
@@ -33,6 +37,10 @@ import { FiltersPipe } from './pipes/filters.pipe';
     PageNotFoundComponent,
     PhotoDetailsComponent,
     FiltersPipe,
+    ThemesComponent,
+    LowstockComponent,
+    RecentsComponent,
+    ArtistesComponent,
   ],
   imports: [
     BrowserModule,
