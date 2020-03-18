@@ -10,16 +10,16 @@
               <thead>
                 <tr>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Product</div>
+                    <div class="p-2 px-3 text-uppercase">Oeuvre</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Price</div>
+                    <div class="py-2 text-uppercase">Prix</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Quantity</div>
+                    <div class="py-2 text-uppercase">Quantité</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Remove</div>
+                    <div class="py-2 text-uppercase">Retirer</div>
                   </th>
                 </tr>
               </thead>
@@ -52,7 +52,7 @@
             <div class="col-lg-6">
             </div>
             <div class="col-lg-6">
-              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Résumé de la commande </div>
               <div class="p-4">
                 <p class="font-italic mb-4">La livraison est offerte pour toutes les commandes.
                 </p>
@@ -64,8 +64,10 @@
                     <h5 class="font-weight-bold">{{totalPrice | currency:'EUR'}}</h5>
                   </li>
                 </ul>
-                <button class="btn btn-dark rounded-pill py-2 btn-block" (click)="checkout()">Procceed to
-                  checkout</button>
+                <button class="btn btn-dark rounded-pill py-2 btn-block" (click)="checkout()">Valider</button>
+                <p *ngIf="notLoggedIn">Vous devez vous identifier avant de pouvoir valider la commande.
+                  <a>S'authentifier</a>
+                </p>
               </div>
             </div>
           </div>

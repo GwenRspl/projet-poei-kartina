@@ -3,6 +3,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Photo } from '../models/photo';
 import { CartStorageService } from '../services/cart-storage.service';
 import { PhotosService } from '../services/photos.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-panier',
@@ -14,8 +15,9 @@ export class PanierComponent implements OnInit {
   cartMap: Map<Photo, number>;
   totalPrice: number = 0;
   tva: number = 0;
+  notLoggedIn: boolean = false;
 
-  constructor(private _cartService: CartStorageService, private _photoService: PhotosService) { }
+  constructor(private _cartService: CartStorageService, private _photoService: PhotosService, private _tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     this.cartMap = this._cartService.getCartMap();
@@ -32,7 +34,11 @@ export class PanierComponent implements OnInit {
   }
 
   checkout() {
-    console.log('commande passée');
+    if (this._tokenStorage.isAuthenticated) {
+      console.log('commande passée');
+    } else {
+      this.notLoggedIn = true;
+    }
   }
 
 }
