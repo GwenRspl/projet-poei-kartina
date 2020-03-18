@@ -9,7 +9,7 @@
 
 <div class="containercard">
   <h1 class="hometitle">Photographies d'Art</h1>
-<p class="homedesc">Oeuvres en édition limitée et numérotée avec certificat d'authenticité</p>
+<p class="homedesc" style="color:white" >Oeuvres en édition limitée et numérotée avec certificat d'authenticité</p>
   <div class="row align-items-center" >
   <div class="card" style="width: 18rem;" *ngFor='let photo of photos | slice:0:4;let i=index'  >
     <img class="card-img-top" src="{{photo.imgUrl}}" alt="Card image cap">
@@ -19,14 +19,18 @@
       <p class="card-text">à partir de {{photo.prix}}€</p>
     </div>
   </div>
+  <br><br><br>
+<div class="container">
+  <button class="btnexplore" style="color:black" >Explorez la collection </button>
+  </div>
 </div>
-<button class="btnexplore" >Explorez la collection ></button>
 </div>
+<br><br>
 <div class="containerrow">
   <div class="row">
 
     <div class="col" style="background-color:grey;" ><p class="cat" style="color:white">Voyage Vivez vos Rêves</p><br>
-      <button class="btn1" >Découvrir la collection </button>
+      <button class="btn1"  >Découvrir la collection </button>
     </div>
 
 
@@ -38,7 +42,7 @@
     <div class="w-100"></div>
 
 
-    <div class="col"  style="background-color:black;"><p class="cat" style="color:white">Aurélien Vilette
+    <div class="col"  style="background-color:darkgreen;"><p class="cat" style="color:white">Aurélien Vilette
       Edifices oubliés</p><br>
       <button class="btn3" >Découvrir l'artiste</button>
     </div>
