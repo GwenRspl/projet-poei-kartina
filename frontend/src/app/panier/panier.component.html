@@ -40,7 +40,7 @@
                   <td class="border-0 align-middle text-center"><strong>{{item.key.prix | currency:'EUR'}}</strong></td>
                   <td class="border-0 align-middle text-center"><strong>{{item.value}}</strong></td>
                   <td class="border-0 align-middle text-center"><a style="cursor: pointer;"
-                      class="btn btn-dark rounded-pill py-2 btn-block" (click)="removeFromCart(item.key)"
+                      class="btn btn-dark rounded-pill py-2 btn-block" (click)="removeFromCart(item.key, item.value)"
                       class="text-dark">
                       <fa-icon [icon]="faTrash"></fa-icon>
                     </a></td>

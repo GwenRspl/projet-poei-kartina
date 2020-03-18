@@ -24,13 +24,15 @@ export class PanierComponent implements OnInit {
     console.log(this.cartMap);
 
     this.cartMap.forEach((value: number, key: Photo) => {
-      this.totalPrice += key.prix;
-      this.tva += key.prix - (key.prix / 1.2);
+      this.totalPrice += key.prix * value;
+      this.tva += (key.prix * value) - ((key.prix * value) / 1.2);
     });
   }
 
-  removeFromCart(photo: Photo) {
+  removeFromCart(photo: Photo, quantite: number) {
     this._cartService.deleteFromCart(photo);
+    this.totalPrice -= photo.prix * quantite;
+    this.tva -= (photo.prix * quantite) - ((photo.prix * quantite) / 1.2);
   }
 
   checkout() {

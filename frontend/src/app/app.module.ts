@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.component';
 import { FiltersPipe } from './pipes/filters.pipe';
 import { PanierComponent } from './panier/panier.component';
+import { CommandeValideeComponent } from './commande-validee/commande-validee.component';
 
 
 
@@ -35,6 +36,7 @@ import { PanierComponent } from './panier/panier.component';
     PhotoDetailsComponent,
     FiltersPipe,
     PanierComponent,
+    CommandeValideeComponent,
   ],
   imports: [
     BrowserModule,
