@@ -23,6 +23,10 @@ import { RecentsComponent } from './recents/recents.component';
 import { ArtistesComponent } from './artistes/artistes.component';
 import { ArtisteComponent } from './artiste/artiste.component';
 
+import { PanierComponent } from './panier/panier.component';
+import { CommandeValideeComponent } from './commande-validee/commande-validee.component';
+
+
 
 
 @NgModule({
@@ -43,6 +47,8 @@ import { ArtisteComponent } from './artiste/artiste.component';
     RecentsComponent,
     ArtistesComponent,
     ArtisteComponent,
+    PanierComponent,
+    CommandeValideeComponent,
   ],
   imports: [
     BrowserModule,

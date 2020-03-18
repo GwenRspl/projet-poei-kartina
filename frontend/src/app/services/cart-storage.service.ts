@@ -7,7 +7,7 @@ import { Photo } from '../models/photo';
 })
 export class CartStorageService {
   private _photosInCart: number[];
-  private _photosInCartMap: Map<number, number>;
+  private _photosInCartMap: Map<Photo, number>;
 
   constructor() {
     this._photosInCart = [];
@@ -19,24 +19,28 @@ export class CartStorageService {
     this._photosInCartMap.clear();
   }
 
-  public addToCart(photoId: number) {
-    this._photosInCart.push(photoId);
-    let quantity;
-    if (this._photosInCartMap.has(photoId)) {
-      quantity = this._photosInCartMap.get(photoId);
+  public addToCart(photo: Photo) {
+    // this._photosInCart.push(photoId);
+    let quantity: number = 0;
+    if (this._photosInCartMap.has(photo)) {
+      quantity = this._photosInCartMap.get(photo);
     }
     quantity += 1;
-    this._photosInCartMap.set(photoId, quantity);
+    this._photosInCartMap.set(photo, quantity);
   }
 
-  public deleteFromCart(photoId: number) {
-    const index = this._photosInCart.indexOf(photoId);
-    this._photosInCart.splice(index, 1);
+  public deleteFromCart(photo: Photo) {
+    // const index = this._photosInCart.indexOf(photoId);
+    // this._photosInCart.splice(index, 1);
 
-    this._photosInCartMap.delete(photoId);
+    this._photosInCartMap.delete(photo);
   }
 
   public getCart(): number[] {
     return this._photosInCart.slice(0);
+  }
+
+  public getCartMap(): Map<Photo, number> {
+    return this._photosInCartMap;
   }
 }

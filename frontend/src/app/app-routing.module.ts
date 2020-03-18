@@ -11,6 +11,8 @@ import { LowstockComponent } from './lowstock/lowstock.component';
 import { RecentsComponent } from './recents/recents.component';
 import { ArtistesComponent } from './artistes/artistes.component';
 import { ArtisteComponent } from './artiste/artiste.component';
+import { PanierComponent } from './panier/panier.component';
+
 
 
 const routes: Routes = [
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'artistes', component: ArtistesComponent },
   { path: 'artiste/:id', component: ArtisteComponent },
   { path: 'photographies/:id', component: PhotoDetailsComponent },
+  { path: 'panier', component: PanierComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];
