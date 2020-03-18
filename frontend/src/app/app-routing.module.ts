@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'connection', component: ConnectionComponent },
   { path: 'photographies', component: CatalogueComponent },
   { path: 'photographies/:id', component: PhotoDetailsComponent },
+  { path: 'panier', component: PanierComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];
