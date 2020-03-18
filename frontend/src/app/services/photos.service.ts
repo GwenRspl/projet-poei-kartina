@@ -14,10 +14,11 @@ export class PhotosService {
   private _allPhotoUrl = 'http://localhost:8080/api/photos';
   private _photosByTheme = 'http://localhost:8080/api/photos/theme/';
   private _photosLowStock= 'http://localhost:8080/api/photos/lowstock';
+  private _photosById = 'http://localhost:8080/api/photos/artist/';
 
   constructor(private _httpClient: HttpClient) { }
 
-  
+
   GetBestPhotos(): Observable<Photo[]> {
     return this._httpClient.get<Photo[]>(this._bestphotoUrl);
   }
@@ -41,6 +42,11 @@ export class PhotosService {
 
   getLowStockPhotos(): Observable<Photo[]> {
     return this._httpClient.get<Photo[]>(this._photosLowStock);
+  }
+
+  getArtistPhotosById(artisteId: number): Observable<Photo[]> {
+    const path = `${this._photosById}${artisteId}`;
+    return this._httpClient.get<Photo[]>(path);
   }
 
 }

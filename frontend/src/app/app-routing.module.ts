@@ -9,6 +9,8 @@ import { PhotoDetailsComponent } from './catalogue/photo-details/photo-details.c
 import { ThemesComponent } from './themes/themes.component';
 import { LowstockComponent } from './lowstock/lowstock.component';
 import { RecentsComponent } from './recents/recents.component';
+import { ArtistesComponent } from './artistes/artistes.component';
+import { ArtisteComponent } from './artiste/artiste.component';
 import { PanierComponent } from './panier/panier.component';
 
 
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: 'theme/:id', component: ThemesComponent },
   { path: 'lowstock', component: LowstockComponent },
   { path: 'lastadds', component: RecentsComponent },
-  { path: 'artistes', component: RecentsComponent },
+  { path: 'artistes', component: ArtistesComponent },
+  { path: 'artiste/:id', component: ArtisteComponent },
   { path: 'photographies/:id', component: PhotoDetailsComponent },
   { path: 'panier', component: PanierComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
