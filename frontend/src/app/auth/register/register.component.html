@@ -1,8 +1,11 @@
 <div class="container">
   <div class="py-5 text-center">
     <h2>Inscription</h2>
+    <br>
+    <p *ngIf="registered">Vous êtes bien enregistré, vous pouvez maintenant vous connecter.</p>
+    <button *ngIf="registered" routerLink="/connection" class="btn btn-dark">Aller à la page de connexion</button>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="!registered">
     <div class="col-md-2"></div>
     <div class="col-md-8 order-md-1">
       <form class="needs-validation" [formGroup]="registerForm" (ngSubmit)="register()">
